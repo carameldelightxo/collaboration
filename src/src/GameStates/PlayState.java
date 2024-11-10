@@ -1,13 +1,24 @@
+package GameStates;
+
+import MainGame.GamePanel;
+
 import java.awt.*;
 
-public class playState implements GameState {
+
+public class PlayState implements GameState {
 
     private GamePanel gp;
-    public playState(GamePanel gamePanel){
+    public PlayState(GamePanel gamePanel){
         this.gp = gamePanel;
     }
     @Override
     public void update() {
+        if(gp.inputHandler.shiftPressed){
+            gp.moveSpeed = 4;
+        }
+        else{
+            gp.moveSpeed = 1;
+        }
         if(gp.inputHandler.upPressed){
             gp.yPos -= gp.moveSpeed;
         }

@@ -1,3 +1,5 @@
+package GameStates;
+
 import java.awt.*;
 
 public interface GameState {

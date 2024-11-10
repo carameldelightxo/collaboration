@@ -1,13 +1,16 @@
+package MainGame;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class playerKeyInputs implements KeyListener {
+public class PlayerKeyInputs implements KeyListener {
 
     public boolean upPressed;
     public boolean downPressed;
     public boolean leftPressed;
     public boolean rightPressed;
     public boolean enterPressed;
+    public boolean shiftPressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -33,6 +36,9 @@ public class playerKeyInputs implements KeyListener {
         if(keyCode == KeyEvent.VK_ENTER){ //if they press 'ENTER'...
             enterPressed = true;
         }
+        if(keyCode == KeyEvent.VK_SHIFT){ //if they press 'SHIFT'...
+            shiftPressed = true;
+        }
 
     }
 
@@ -53,6 +59,9 @@ public class playerKeyInputs implements KeyListener {
         }
         if(keyCode == KeyEvent.VK_ENTER){ //if they release 'ENTER'...
             enterPressed = false;
+        }
+        if(keyCode == KeyEvent.VK_SHIFT){ //if they release 'SHIFT'...
+            shiftPressed = false;
         }
     }
 }

@@ -1,19 +1,21 @@
+package MainGame;
+import GameStates.*;
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube ty ty
 
-    final int tileSize = 48; //each 1 tile is 48x48 pixels, final means it can't be changed
+    public final int tileSize = 48; //each 1 tile is 48x48 pixels, final means it can't be changed
     final int screenHeight = 12 * tileSize; //576 pixels tall // 12 tiles tall, temp size
     final int screenWidth = 16 * tileSize; //768 pixels wide // 16 tiles tall, temp size
-    int fps = 60;
-    int xPos = 100;
-    int yPos = 100;
-    int moveSpeed = 1;
-    playerKeyInputs inputHandler = new playerKeyInputs();
+    public int fps = 60;
+    public int xPos = 100;
+    public int yPos = 100;
+    public int moveSpeed = 1;
+    public PlayerKeyInputs inputHandler = new PlayerKeyInputs();
     Thread gameThread;
 
-    GameState gameState = new playState(this);
+    GameState gameState = new PlayState(this);
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(new Color(255, 192, 203));

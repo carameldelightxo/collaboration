@@ -1,9 +1,13 @@
+package GameStates;
+
+import MainGame.GamePanel;
+
 import java.awt.*;
 
-public class pauseState implements GameState {
+public class TitleState implements GameState {
     private GamePanel gp;
 
-    public pauseState(GamePanel gp){
+    public TitleState(GamePanel gp){
         this.gp = gp;
     }
 
