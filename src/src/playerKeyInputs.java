@@ -7,6 +7,7 @@ public class playerKeyInputs implements KeyListener {
     public boolean downPressed;
     public boolean leftPressed;
     public boolean rightPressed;
+    public boolean enterPressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -29,6 +30,9 @@ public class playerKeyInputs implements KeyListener {
         if(keyCode == KeyEvent.VK_D){ //if they press 'D'...
             rightPressed = true;
         }
+        if(keyCode == KeyEvent.VK_ENTER){ //if they press 'ENTER'...
+            enterPressed = true;
+        }
 
     }
 
@@ -46,6 +50,9 @@ public class playerKeyInputs implements KeyListener {
         }
         if(keyCode == KeyEvent.VK_D){ //if they release 'D'...
             rightPressed = false;
+        }
+        if(keyCode == KeyEvent.VK_ENTER){ //if they release 'ENTER'...
+            enterPressed = false;
         }
     }
 }
