@@ -1,5 +1,6 @@
 package MainGame;
 import GameStates.*;
+import Entity.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,11 +9,11 @@ public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube 
     public final int tileSize = 48; //each 1 tile is 48x48 pixels, final means it can't be changed
     final int screenHeight = 12 * tileSize; //576 pixels tall // 12 tiles tall, temp size
     final int screenWidth = 16 * tileSize; //768 pixels wide // 16 tiles tall, temp size
-    public int fps = 60;
-    public int xPos = 100;
-    public int yPos = 100;
-    public int moveSpeed = 1;
+
+    int fps = 60;
+
     public PlayerKeyInputs inputHandler = new PlayerKeyInputs();
+    public Player player = new Player(this, inputHandler);
     Thread gameThread;
 
     GameState gameState = new PlayState(this);
@@ -54,35 +55,12 @@ public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube 
         }
 
     }
-    public void update(){
-
-        if(inputHandler.upPressed){
-            yPos -= moveSpeed;
-        }
-        if(inputHandler.downPressed){
-            yPos += moveSpeed;
-        }
-        if(inputHandler.leftPressed){
-            xPos -= moveSpeed;
-        }
-        if(inputHandler.rightPressed){
-            xPos += moveSpeed;
-        }
-    }
 
     public void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
 
         gameState.paintComponent(graphics);
-        /**
-        Graphics2D graphics2D = (Graphics2D)graphics;
 
-        graphics2D.setColor(Color.black);
-
-        graphics2D.fillRect(xPos, yPos, tileSize, tileSize);
-
-        graphics2D.dispose();
-         **/
     }
 
 }
