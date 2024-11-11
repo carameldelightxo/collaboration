@@ -72,21 +72,31 @@ public class Player extends Entity {
                 xPos += moveSpeed;
             }
             spriteFrame++;
-            if(spriteFrame < 10){
+            if(spriteFrame < 10){//stand 1
                 currentSprite = 0;
             }
-            if(spriteFrame > 10 && spriteFrame < 20){
+            if(spriteFrame > 10 && spriteFrame < 20){ //walk 1
                 currentSprite = 1;
             }
-            else if(spriteFrame > 20 && spriteFrame < 30){
+            else if(spriteFrame > 20 && spriteFrame < 30){ //stand 2
                 currentSprite = 2;
             }
-            else if(spriteFrame > 30 && spriteFrame < 40){
+            else if(spriteFrame > 30 && spriteFrame < 40){ //walk 2
                 currentSprite = 3;
             }
-            else if(spriteFrame > 40){
+            else if (spriteFrame > 40){ //stand 1
                 currentSprite = 0;
                 spriteFrame = 0;
+            }
+        }
+        else{
+            if(spriteFrame < 20){
+                currentSprite = 0;
+                spriteFrame = 9;
+            }
+            else{
+                currentSprite = 2;
+                spriteFrame = 29;
             }
         }
         //top left == 0,0 -> subtracting y moves up, adding x moves right
