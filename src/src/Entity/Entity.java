@@ -7,6 +7,8 @@ public class Entity {
     public int xPos;
     public int yPos;
     public int moveSpeed;
+    int spriteFrame;
+    int currentSprite;
 
     public BufferedImage frontS1, frontS2,frontW1, frontW2, backS1, backS2, backW1, backW2,
      leftS1, leftS2, leftW1, leftW2, rightS1, rightS2, rightW1, rightW2;
@@ -17,5 +19,7 @@ public class Entity {
         this.yPos = yPos;
         this.moveSpeed = moveSpeed;
         this.direction = direction;
+        this.spriteFrame = 0;
+        this.currentSprite = 0;
     }
 }
