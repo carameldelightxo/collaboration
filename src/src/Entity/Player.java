@@ -1,6 +1,7 @@
 package Entity;
 import MainGame.*;
 
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,10 +15,11 @@ public class Player extends Entity {
         super(384, 288, 1, "front");
         this.gp = gp;
         this.inputHandler = inputHandler;
-        //getPlayerImage();
+       // getPlayerImage();
     }
 
     public void getPlayerImage(){
+
         try{
             frontS1 = ImageIO.read(getClass().getResourceAsStream("/player/temp_front_SL.png"));
             frontS2 = ImageIO.read(getClass().getResourceAsStream("/player/temp_front_SR.png"));
@@ -78,7 +80,7 @@ public class Player extends Entity {
         graphics2D.fillRect(xPos, yPos, gp.tileSize, gp.tileSize);
 
         graphics2D.dispose();
-        /**
+/**
         BufferedImage image = null;
 
         switch(direction){
@@ -99,7 +101,7 @@ public class Player extends Entity {
         graphics2D.drawImage(image, xPos, yPos, gp.tileSize, gp.tileSize, null);
 
         graphics2D.dispose();
-         **/
+**/
 
     }
 }
