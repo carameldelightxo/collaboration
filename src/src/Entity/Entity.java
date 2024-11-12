@@ -10,8 +10,8 @@ public class Entity {
     int spriteFrame;
     int currentSprite;
 
-    public BufferedImage frontS1, frontS2,frontW1, frontW2, backS1, backS2, backW1, backW2,
-     leftS1, leftS2, leftW1, leftW2, rightS1, rightS2, rightW1, rightW2;
+    public BufferedImage frontS,frontW1, frontW2, backS, backW1, backW2,
+            leftS, leftW1, leftW2, rightS, rightW1, rightW2;
     public String direction;
 
     public Entity(int xPos, int yPos, int moveSpeed, String direction){

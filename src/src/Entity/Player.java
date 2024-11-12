@@ -20,25 +20,21 @@ public class Player extends Entity {
 
     public void getPlayerImage(){
         try{
-            frontS1 = ImageIO.read(new File("out/res/player/temp_front_SL.png"));
-            frontS2 = ImageIO.read(new File("out/res/player/temp_front_SR.png"));
-            frontW1 = ImageIO.read(new File("out/res/player/temp_front_WL.png"));
-            frontW2 = ImageIO.read(new File("out/res/player/temp_front_WR.png"));
+            frontS = ImageIO.read(new File("out/res/player/default/default_front_stand.png"));
+            frontW1 = ImageIO.read(new File("out/res/player/default/default_front_walk1.png"));
+            frontW2 = ImageIO.read(new File("out/res/player/default/default_front_walk2.png"));
 
-            backS1 = ImageIO.read(new File("out/res/player/temp_back_SL.png"));
-            backS2 = ImageIO.read(new File("out/res/player/temp_back_SR.png"));
-            backW1 = ImageIO.read(new File("out/res/player/temp_back_WL.png"));
-            backW2 = ImageIO.read(new File("out/res/player/temp_back_WR.png"));
+            backS = ImageIO.read(new File("out/res/player/default/default_back_stand.png"));
+            backW1 = ImageIO.read(new File("out/res/player/default/default_back_walk1.png"));
+            backW2 = ImageIO.read(new File("out/res/player/default/default_back_walk2.png"));
 
-            leftS1 = ImageIO.read(new File("out/res/player/temp_left_SL.png"));
-            leftS2 = ImageIO.read(new File("out/res/player/temp_left_SR.png"));
-            leftW1 = ImageIO.read(new File("out/res/player/temp_left_WL.png"));
-            leftW2 = ImageIO.read(new File("out/res/player/temp_left_WR.png"));
+            leftS = ImageIO.read(new File("out/res/player/default/default_left_stand.png"));
+            leftW1 = ImageIO.read(new File("out/res/player/default/default_left_walk1.png"));
+            leftW2 = ImageIO.read(new File("out/res/player/default/default_left_walk2.png"));
 
-            rightS1 = ImageIO.read(new File("out/res/player/temp_right_SL.png"));
-            rightS2 = ImageIO.read(new File("out/res/player/temp_right_SR.png"));
-            rightW1 = ImageIO.read(new File("out/res/player/temp_right_WL.png"));
-            rightW2 = ImageIO.read(new File("out/res/player/temp_right_WR.png"));
+            rightS = ImageIO.read(new File("out/res/player/default/default_right_stand.png"));
+            rightW1 = ImageIO.read(new File("out/res/player/default/default_right_walk1.png"));
+            rightW2 = ImageIO.read(new File("out/res/player/default/default_right_walk2.png"));
         }
         catch(IOException e){
            e.printStackTrace();
@@ -78,11 +74,11 @@ public class Player extends Entity {
             if(spriteFrame > 10 && spriteFrame < 20){ //walk 1
                 currentSprite = 1;
             }
-            else if(spriteFrame > 20 && spriteFrame < 30){ //stand 2
-                currentSprite = 2;
+            else if(spriteFrame > 20 && spriteFrame < 30){ //stand 1
+                currentSprite = 0;
             }
             else if(spriteFrame > 30 && spriteFrame < 40){ //walk 2
-                currentSprite = 3;
+                currentSprite = 2;
             }
             else if (spriteFrame > 40){ //stand 1
                 currentSprite = 0;
@@ -95,7 +91,7 @@ public class Player extends Entity {
                 spriteFrame = 9;
             }
             else{
-                currentSprite = 2;
+                currentSprite = 0;
                 spriteFrame = 29;
             }
         }
@@ -117,15 +113,12 @@ public class Player extends Entity {
         switch(direction){
             case "front":
                 if (currentSprite == 0) {
-                    image = frontS1;
+                    image = frontS;
                 }
                 else if(currentSprite == 1){
                     image = frontW1;
                 }
                 else if(currentSprite == 2){
-                    image = frontS2;
-                }
-                else if(currentSprite == 3){
                     image = frontW2;
                 }
 
@@ -133,43 +126,34 @@ public class Player extends Entity {
                 break;
             case "back":
                 if (currentSprite == 0) {
-                    image = backS1;
+                    image = backS;
                 }
                 else if(currentSprite == 1){
                     image = backW1;
                 }
                 else if(currentSprite == 2){
-                    image = backS2;
-                }
-                else if(currentSprite == 3){
                     image = backW2;
                 }
                 break;
             case "left":
                 if (currentSprite == 0) {
-                    image = leftS1;
+                    image = leftS;
                 }
                 else if(currentSprite == 1){
                     image = leftW1;
                 }
                 else if(currentSprite == 2){
-                    image = leftS2;
-                }
-                else if(currentSprite == 3){
                     image = leftW2;
                 }
                 break;
             case "right":
                 if (currentSprite == 0) {
-                    image = rightS1;
+                    image = rightS;
                 }
                 else if(currentSprite == 1){
                     image = rightW1;
                 }
                 else if(currentSprite == 2){
-                    image = rightS2;
-                }
-                else if(currentSprite == 3){
                     image = rightW2;
                 }
                 break;
