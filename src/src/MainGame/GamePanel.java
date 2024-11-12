@@ -1,14 +1,18 @@
 package MainGame;
 import GameStates.*;
 import Entity.*;
+import TileStuff.TileManager;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube ty ty
 
     public final int tileSize = 48; //each 1 tile is 48x48 pixels, final means it can't be changed
-    final int screenHeight = 12 * tileSize; //576 pixels tall // 12 tiles tall, temp size
-    final int screenWidth = 16 * tileSize; //768 pixels wide // 16 tiles tall, temp size
+    public final int rows = 12;
+    public final int columns = 16;
+    public final int screenHeight = rows * tileSize; //576 pixels tall // 12 tiles tall, temp size
+    public final int screenWidth = columns * tileSize; //768 pixels wide // 16 tiles tall, temp size
 
     int fps = 60;
 
@@ -17,6 +21,8 @@ public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube 
     Thread gameThread;
 
     GameState gameState = new PlayState(this);
+    public TileManager tileManager = new TileManager(this);
+
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(new Color(255, 192, 203));

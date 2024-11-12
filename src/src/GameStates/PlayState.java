@@ -20,7 +20,8 @@ public class PlayState implements GameState {
     public void paintComponent(Graphics graphics) {
 
         Graphics2D graphics2D = (Graphics2D)graphics;
-
+        gp.tileManager.draw(graphics2D);
         gp.player.draw(graphics2D);
+
     }
 }
