@@ -15,6 +15,7 @@ public class Player extends Entity {
         super(384, 288, 1, "front");
         this.gp = gp;
         this.inputHandler = inputHandler;
+        this.hitBox = new Rectangle(xPos + 8, yPos + 16, 32, 32);
         getPlayerImage();
     }
 
@@ -53,19 +54,15 @@ public class Player extends Entity {
         if(inputHandler.downPressed || inputHandler.upPressed || inputHandler.leftPressed || inputHandler.rightPressed){
             if(inputHandler.upPressed){
                 direction = "back";
-                yPos -= moveSpeed;
             }
             if(inputHandler.downPressed){
                 direction = "front";
-                yPos += moveSpeed;
             }
             if(inputHandler.leftPressed){
                 direction = "left";
-                xPos -= moveSpeed;
             }
             if(inputHandler.rightPressed){
                 direction = "right";
-                xPos += moveSpeed;
             }
             spriteFrame++;
             if(spriteFrame < 10){//stand 1
@@ -84,6 +81,30 @@ public class Player extends Entity {
                 currentSprite = 0;
                 spriteFrame = 0;
             }
+            collided = false;
+            gp.collisionCatcher.checkTile(this);
+            if(!collided){
+                switch(direction){
+                    case "back":
+                        yPos -= moveSpeed;
+                        hitBox.y = yPos + 16;
+                        break;
+                    case "front":
+                        yPos += moveSpeed;
+                        hitBox.y = yPos + 16;
+                        break;
+                    case "left":
+                        xPos -= moveSpeed;
+                        hitBox.x = xPos + 8;
+                        break;
+                    case "right":
+                        xPos += moveSpeed;
+                        hitBox.x = xPos + 8;
+                        break;
+
+                }
+            }
+
         }
         else{
             if(spriteFrame < 20){
@@ -160,6 +181,7 @@ public class Player extends Entity {
         }
 
         graphics2D.drawImage(image, xPos, yPos, gp.tileSize, gp.tileSize, null);
+        graphics2D.drawRect(xPos + 8, yPos + 16, 32, 32);
 
         graphics2D.dispose();
 

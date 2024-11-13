@@ -22,6 +22,7 @@ public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube 
 
     GameState gameState = new PlayState(this);
     public TileManager tileManager = new TileManager(this);
+    public CollisionCatcher collisionCatcher = new CollisionCatcher(this);
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
