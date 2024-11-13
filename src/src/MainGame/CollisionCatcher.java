@@ -8,17 +8,20 @@ public class CollisionCatcher {
     }
 
     public void checkTile(Entity entity){
+        //hitbox coordinates
         int leftHitBox = entity.hitBox.x;
         int rightHitBox = entity.hitBox.x + entity.hitBox.width;
         int topHitBox = entity.hitBox.y;
         int bottomHitBox = entity.hitBox.y + entity.hitBox.height;
 
+        //what tile you're on
         int leftCol = (leftHitBox + gp.tileSize)/gp.tileSize;
         int rightCol = (rightHitBox + gp.tileSize)/gp.tileSize;
         int topRow = (topHitBox + gp.tileSize)/gp.tileSize;
         int bottomRow = (bottomHitBox + gp.tileSize)/gp.tileSize;
         int tile1;
         int tile2;
+        //what tile you're ab to go to
         switch(entity.direction){
             case "back":
                 topRow = (topHitBox - entity.moveSpeed + gp.tileSize)/gp.tileSize;

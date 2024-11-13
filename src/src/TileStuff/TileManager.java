@@ -20,22 +20,22 @@ public class TileManager {
         this.tile = new Tile[10];
         this.tileMap = new int[gp.columns + 2][gp.rows + 2];
         getTileImage();
-        loadMap();
+        loadMap("out/res/maps/base_map_00.txt");
     }
     public void getTileImage(){
         try{
-            tile[0] = new Tile();
+            tile[0] = new Tile(); //barrier
             tile[0].collision = true;
-            tile[0].image = ImageIO.read(new File("out/res/player/temp_back_SL.png"));
+            tile[0].image = ImageIO.read(new File("out/res/tiles/barrier.png"));
 
-            tile[1] = new Tile();
+            tile[1] = new Tile(); //main floor
             tile[1].image = ImageIO.read(new File("out/res/tiles/temp_floor_0.png"));
 
-            tile[2] = new Tile();
+            tile[2] = new Tile(); //obstacle
             tile[2].collision = true;
             tile[2].image = ImageIO.read(new File("out/res/tiles/example_box.png"));
 
-            tile[3] = new Tile();
+            tile[3] = new Tile(); //extra
             tile[3].collision = true;
             tile[3].image = ImageIO.read(new File("out/res/player/temp_front_SL.png"));
         }
@@ -43,9 +43,9 @@ public class TileManager {
             e.printStackTrace();
         }
     }
-    public void loadMap(){//should pass in the file path instead
+    public void loadMap(String filePath){//should pass in the file path instead
         try{
-            ArrayList<String> map = new ArrayList<>(Files.readAllLines(Paths.get("out/res/maps/base_map_00.txt")));
+            ArrayList<String> map = new ArrayList<>(Files.readAllLines(Paths.get(filePath)));
             for(int row = 0; row < gp.rows + 2; row++){
                 String line = map.get(row);
                 ArrayList<String> splits = new ArrayList<>(Arrays.asList(line.split(" ")));
@@ -58,7 +58,7 @@ public class TileManager {
             System.out.println("load map failed");
             for(int row = 0; row < gp.rows + 2; row++){
                 for(int column = 0; column < gp.columns + 2; column++){
-                    tileMap[column][row] = 2;
+                    tileMap[column][row] = 0;
                 }
             }
         }
