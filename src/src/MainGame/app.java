@@ -8,7 +8,7 @@ public class app {
 
         JFrame window = new JFrame("Our Boba Game!!! :3");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(false);
+        //window.setResizable(false);
         GamePanel gamePanel = new GamePanel(); //see mainGame.GamePanel class
         window.add(gamePanel);
         window.pack(); //sets window size to specified size in mainGame.GamePanel
