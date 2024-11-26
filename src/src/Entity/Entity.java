@@ -8,8 +8,8 @@ public class Entity {
     public int xPos;
     public int yPos;
     public int moveSpeed;
-    int spriteFrame;
-    int currentSprite;
+    public int spriteFrame;
+    public int currentSprite;
     public Rectangle hitBox;
     public boolean collided = false;
 
