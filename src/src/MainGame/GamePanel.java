@@ -17,16 +17,16 @@ public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube 
     int fps = 60;
 
     public PlayerKeyInputs inputHandler = new PlayerKeyInputs(this);
-    public Player player = new Player(this, inputHandler);
+    public Player player = new Player(this, inputHandler, "default");
     Thread gameThread;
 
-    public GameState gameState = new PlayState(this);
+    public GameState gameState = new TitleState(this);
     public TileManager tileManager = new TileManager(this);
     public CollisionCatcher collisionCatcher = new CollisionCatcher(this);
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(new Color(0, 128, 0));
+        this.setBackground(new Color(0, 0, 0));
         this.setDoubleBuffered(true);
 
         this.addKeyListener(inputHandler);

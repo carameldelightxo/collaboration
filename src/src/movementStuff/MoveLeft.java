@@ -14,19 +14,20 @@ public class MoveLeft extends MovementState{
         player.direction = "left";
     }
     public void updateDirection(){
-        if(!inputHandler.leftPressed){
-            if(inputHandler.upPressed){
-                player.movementState = new MoveUp(player, inputHandler);
-                return;
-            }
-            if(inputHandler.downPressed){
-                player.movementState = new MoveDown(player, inputHandler);
-                return;
-            }
-            if(inputHandler.rightPressed){
-                player.movementState = new MoveRight(player, inputHandler);
-                return;
-            }
+        if(inputHandler.upPressed){
+            player.movementState = new MoveUp(player, inputHandler);
+            inputHandler.leftPressed = false;
+            return;
+        }
+        if(inputHandler.downPressed){
+            player.movementState = new MoveDown(player, inputHandler);
+            inputHandler.leftPressed = false;
+            return;
+        }
+        if(inputHandler.rightPressed){
+            player.movementState = new MoveRight(player, inputHandler);
+            inputHandler.leftPressed = false;
+            return;
         }
     }
 

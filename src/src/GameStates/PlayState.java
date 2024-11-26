@@ -28,7 +28,7 @@ public class PlayState extends GameState {
 
     @Override
     public void changeStates(String state){
-        if(state.equals("pause")){
+        if(state.equals("escape")){
             gp.gameState = new PauseState(gp);
         }
     }

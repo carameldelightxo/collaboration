@@ -25,4 +25,36 @@ public class Entity {
         this.spriteFrame = 0;
         this.currentSprite = 0;
     }
+
+    public void calculateSprite(){
+        this.spriteFrame++;
+        if(this.spriteFrame < 10){//stand 1
+            this.currentSprite = 0;
+        }
+        if(this.spriteFrame > 10 && this.spriteFrame < 20){ //walk 1
+            this.currentSprite = 1;
+        }
+        else if(this.spriteFrame > 20 && this.spriteFrame < 30){ //stand 1
+            this.currentSprite = 0;
+        }
+        else if(this.spriteFrame > 30 && this.spriteFrame < 40){ //walk 2
+            this.currentSprite = 2;
+        }
+        else if (this.spriteFrame > 40){ //stand 1
+            this.currentSprite = 0;
+            this.spriteFrame = 0;
+        }
+    }
+
+    public void idleSprite(){
+        if(this.spriteFrame < 20){
+            this.currentSprite = 0;
+            this.spriteFrame = 9;
+        }
+        else{
+            this.currentSprite = 0;
+            this.spriteFrame = 29;
+        }
+    }
+
 }

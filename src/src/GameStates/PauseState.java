@@ -42,19 +42,18 @@ public class PauseState extends GameState {
         graphics2D.dispose();
     }
 
-
-
-
     @Override
     public void changeStates(String state){
-        if(state.equals("pause")){
+        if(state.equals("escape")){
             gp.gameState = new PlayState(gp);
         }
         else if(state.equals("title")){
             gp.gameState = new TitleState(gp);
         }
     }
-
+    //
+    //
+    //
     public class mainPause implements subState{
         PauseState pauseState;
         public mainPause(PauseState pauseState){
@@ -127,6 +126,7 @@ public class PauseState extends GameState {
             }
             if(inputHandler.spacePressed && optionNum == 0){ //yes, quit
                 gp.gameState = new TitleState(gp);
+                inputHandler.spacePressed = false;
             }
             if(inputHandler.spacePressed && optionNum == 1){ //no, stay paused
                 pauseState.subState = new mainPause(pauseState);

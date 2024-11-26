@@ -14,19 +14,20 @@ public class MoveUp extends MovementState{
         player.direction = "back";
     }
     public void updateDirection(){
-        if(!inputHandler.upPressed) {
-            if (inputHandler.leftPressed) {
-                player.movementState = new MoveLeft(player, inputHandler);
-                return;
-            }
-            if (inputHandler.downPressed) {
-                player.movementState = new MoveDown(player, inputHandler);
-                return;
-            }
-            if (inputHandler.rightPressed) {
-                player.movementState = new MoveRight(player, inputHandler);
-                return;
-            }
+        if (inputHandler.leftPressed) {
+            player.movementState = new MoveLeft(player, inputHandler);
+            inputHandler.upPressed = false;
+            return;
+        }
+        if (inputHandler.downPressed) {
+            player.movementState = new MoveDown(player, inputHandler);
+            inputHandler.upPressed = false;
+            return;
+        }
+        if (inputHandler.rightPressed) {
+            player.movementState = new MoveRight(player, inputHandler);
+            inputHandler.upPressed = false;
+            return;
         }
     }
 

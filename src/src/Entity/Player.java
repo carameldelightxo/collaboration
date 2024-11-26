@@ -13,35 +13,36 @@ public class Player extends Entity {
     PlayerKeyInputs inputHandler;
     public MovementState movementState;
 
-    public Player(GamePanel gp, PlayerKeyInputs inputHandler){
+    public Player(GamePanel gp, PlayerKeyInputs inputHandler, String skin){
         super(384, 288, 1, "front");
         this.gp = gp;
         this.inputHandler = inputHandler;
         this.hitBox = new Rectangle(xPos + 8, yPos + 16, 32, 32);
         this.movementState = new MoveDown(this, inputHandler);
-        getPlayerImage();
+        getPlayerImage(skin);
     }
 
-    public void getPlayerImage(){
-        try{
-            frontS = ImageIO.read(new File("out/res/player/default/default_front_stand.png"));
-            frontW1 = ImageIO.read(new File("out/res/player/default/default_front_walk1.png"));
-            frontW2 = ImageIO.read(new File("out/res/player/default/default_front_walk2.png"));
+    public void getPlayerImage(String skin){
+        if(skin.equals("default")) {
+            try {
+                frontS = ImageIO.read(new File("out/res/player/default/default_front_stand.png"));
+                frontW1 = ImageIO.read(new File("out/res/player/default/default_front_walk1.png"));
+                frontW2 = ImageIO.read(new File("out/res/player/default/default_front_walk2.png"));
 
-            backS = ImageIO.read(new File("out/res/player/default/default_back_stand.png"));
-            backW1 = ImageIO.read(new File("out/res/player/default/default_back_walk1.png"));
-            backW2 = ImageIO.read(new File("out/res/player/default/default_back_walk2.png"));
+                backS = ImageIO.read(new File("out/res/player/default/default_back_stand.png"));
+                backW1 = ImageIO.read(new File("out/res/player/default/default_back_walk1.png"));
+                backW2 = ImageIO.read(new File("out/res/player/default/default_back_walk2.png"));
 
-            leftS = ImageIO.read(new File("out/res/player/default/default_left_stand.png"));
-            leftW1 = ImageIO.read(new File("out/res/player/default/default_left_walk1.png"));
-            leftW2 = ImageIO.read(new File("out/res/player/default/default_left_walk2.png"));
+                leftS = ImageIO.read(new File("out/res/player/default/default_left_stand.png"));
+                leftW1 = ImageIO.read(new File("out/res/player/default/default_left_walk1.png"));
+                leftW2 = ImageIO.read(new File("out/res/player/default/default_left_walk2.png"));
 
-            rightS = ImageIO.read(new File("out/res/player/default/default_right_stand.png"));
-            rightW1 = ImageIO.read(new File("out/res/player/default/default_right_walk1.png"));
-            rightW2 = ImageIO.read(new File("out/res/player/default/default_right_walk2.png"));
-        }
-        catch(IOException e){
-           e.printStackTrace();
+                rightS = ImageIO.read(new File("out/res/player/default/default_right_stand.png"));
+                rightW1 = ImageIO.read(new File("out/res/player/default/default_right_walk1.png"));
+                rightW2 = ImageIO.read(new File("out/res/player/default/default_right_walk2.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -59,7 +60,7 @@ public class Player extends Entity {
 
             movementState.updateDirection();
 
-            movementState.calculateSprite(this);
+            calculateSprite();
 
             collided = false;
             gp.collisionCatcher.checkTile(this);
@@ -68,7 +69,7 @@ public class Player extends Entity {
 
         }
         else{
-            movementState.idleSprite(this);
+            idleSprite();
         }
         //top left == 0,0 -> subtracting y moves up, adding x moves right
 

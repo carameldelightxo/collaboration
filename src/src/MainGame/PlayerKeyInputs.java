@@ -41,7 +41,7 @@ public class PlayerKeyInputs implements KeyListener {
             rightPressed = true;
         }
         if(keyCode == KeyEvent.VK_ESCAPE){ //if they press 'ESCAPE'...
-            gp.gameState.changeStates("pause");
+            gp.gameState.changeStates("escape");
         }
         if(keyCode == KeyEvent.VK_SPACE){ //if they press 'SPACE'...
             spacePressed = true;
