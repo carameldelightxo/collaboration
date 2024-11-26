@@ -16,11 +16,11 @@ public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube 
 
     int fps = 60;
 
-    public PlayerKeyInputs inputHandler = new PlayerKeyInputs();
+    public PlayerKeyInputs inputHandler = new PlayerKeyInputs(this);
     public Player player = new Player(this, inputHandler);
     Thread gameThread;
 
-    GameState gameState = new PlayState(this);
+    public GameState gameState = new PlayState(this);
     public TileManager tileManager = new TileManager(this);
     public CollisionCatcher collisionCatcher = new CollisionCatcher(this);
 
@@ -69,5 +69,7 @@ public class GamePanel extends JPanel implements Runnable{ //RyiSnow on YouTube 
         gameState.paintComponent(graphics);
 
     }
+
+
 
 }

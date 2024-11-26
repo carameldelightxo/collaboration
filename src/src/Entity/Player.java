@@ -84,7 +84,5 @@ public class Player extends Entity {
         //display hitbox
         graphics2D.drawRect(xPos + 8, yPos + 16, 32, 32);
 
-        graphics2D.dispose();
-
     }
 }

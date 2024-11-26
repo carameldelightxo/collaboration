@@ -11,6 +11,13 @@ public class PlayerKeyInputs implements KeyListener {
     public boolean rightPressed;
     public boolean enterPressed;
     public boolean shiftPressed;
+    public boolean spacePressed;
+
+    public GamePanel gp;
+
+    public PlayerKeyInputs(GamePanel gp){
+        this.gp = gp;
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -32,6 +39,12 @@ public class PlayerKeyInputs implements KeyListener {
         }
         if(keyCode == KeyEvent.VK_D){ //if they press 'D'...
             rightPressed = true;
+        }
+        if(keyCode == KeyEvent.VK_ESCAPE){ //if they press 'ESCAPE'...
+            gp.gameState.changeStates("pause");
+        }
+        if(keyCode == KeyEvent.VK_SPACE){ //if they press 'SPACE'...
+            spacePressed = true;
         }
         if(keyCode == KeyEvent.VK_ENTER){ //if they press 'ENTER'...
             enterPressed = true;
@@ -59,6 +72,9 @@ public class PlayerKeyInputs implements KeyListener {
         }
         if(keyCode == KeyEvent.VK_ENTER){ //if they release 'ENTER'...
             enterPressed = false;
+        }
+        if(keyCode == KeyEvent.VK_SPACE){ //if they release 'SPACE'...
+            spacePressed = false;
         }
         if(keyCode == KeyEvent.VK_SHIFT){ //if they release 'SHIFT'...
             shiftPressed = false;

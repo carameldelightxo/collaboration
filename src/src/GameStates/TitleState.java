@@ -4,7 +4,7 @@ import MainGame.GamePanel;
 
 import java.awt.*;
 
-public class TitleState implements GameState {
+public class TitleState extends GameState {
     private GamePanel gp;
 
     public TitleState(GamePanel gp){
@@ -18,6 +18,11 @@ public class TitleState implements GameState {
 
     @Override
     public void paintComponent(Graphics graphics) {
+
+    }
+
+    @Override
+    public void changeStates(String state){
 
     }
 }

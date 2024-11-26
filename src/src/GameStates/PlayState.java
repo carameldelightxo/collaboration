@@ -5,7 +5,7 @@ import MainGame.GamePanel;
 import java.awt.*;
 
 
-public class PlayState implements GameState {
+public class PlayState extends GameState {
 
     private GamePanel gp;
     public PlayState(GamePanel gamePanel){
@@ -23,5 +23,13 @@ public class PlayState implements GameState {
         gp.tileManager.draw(graphics2D);
         gp.player.draw(graphics2D);
 
+        graphics2D.dispose();
+    }
+
+    @Override
+    public void changeStates(String state){
+        if(state.equals("pause")){
+            gp.gameState = new PauseState(gp);
+        }
     }
 }

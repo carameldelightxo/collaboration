@@ -4,7 +4,7 @@ import MainGame.GamePanel;
 
 import java.awt.*;
 
-public class DialogueState implements GameState {
+public class DialogueState extends GameState {
     private GamePanel gp;
 
     public DialogueState(GamePanel gp){
@@ -20,4 +20,10 @@ public class DialogueState implements GameState {
     public void paintComponent(Graphics graphics) {
 
     }
+
+    @Override
+    public void changeStates(String state){
+
+    }
+
 }
